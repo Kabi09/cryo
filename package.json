@@ -1,0 +1,26 @@
+{
+  "name": "cryo-erp-root",
+  "version": "1.0.0",
+  "description": "CryoTech Industrial Manufacturing & Field Operations ERP System",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "start:backend": "npm --prefix backend start",
+    "start:frontend": "npm --prefix frontend run preview",
+    "build:frontend": "npm --prefix frontend run build",
+    "build": "npm --prefix frontend run build",
+    "seed": "node scripts/seed.js",
+    "test:backend": "npm --prefix backend test",
+    "test:workflow": "node scripts/verification/test-e2e-workflow.js",
+    "test": "npm run test:backend && npm run test:workflow"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
