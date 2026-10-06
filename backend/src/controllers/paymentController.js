@@ -59,8 +59,11 @@ exports.recordPayment = async (req, res, next) => {
       notes
     } = req.body;
 
-    if (!customerId || !receivedAmount || !transactionReference) {
-      throw new AppError('Missing required payment fields', 400, 'VALIDATION_ERROR');
+    const receivedAmt = receivedAmount || req.body.amount;
+    const txnRef = transactionReference || req.body.transactionRef;
+
+    if (!customerId || !receivedAmt || !txnRef) {
+      throw new AppError('Missing required payment fields (customerId, receivedAmount/amount, transactionReference/transactionRef)', 400, 'VALIDATION_ERROR');
     }
 
     const proofDocumentPath = req.file ? req.file.path : null;
@@ -71,12 +74,12 @@ exports.recordPayment = async (req, res, next) => {
       customerId,
       salesOrderId,
       invoiceId,
-      expectedAmount: expectedAmount || receivedAmount,
-      receivedAmount,
+      expectedAmount: expectedAmount || receivedAmt,
+      receivedAmount: receivedAmt,
       paymentType: paymentType || 'ADVANCE',
       method: method || 'NEFT',
       bankName,
-      transactionReference,
+      transactionReference: txnRef,
       paymentDate: paymentDate || new Date(),
       proofDocumentPath,
       status: STATUSES.PAYMENT.PENDING,

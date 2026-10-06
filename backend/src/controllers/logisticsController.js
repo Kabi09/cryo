@@ -18,7 +18,7 @@ exports.getPackingLists = async (req, res, next) => {
       .populate('salesOrderId', 'salesOrderNumber customerId')
       .populate('inspectedBy', 'name email')
       .sort({ createdAt: -1 });
-    return ApiResponse.success(res, 'Packing lists fetched', { lists });
+    return ApiResponse.success(res, 'Packing lists fetched', { lists, packingLists: lists });
   } catch (err) {
     next(err);
   }

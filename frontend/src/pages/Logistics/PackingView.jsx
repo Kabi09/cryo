@@ -35,7 +35,7 @@ export default function PackingView() {
         api.get('/sales/orders'),
         api.get('/serials')
       ]);
-      setPackingLists(pRes.data.packingLists || []);
+      setPackingLists(pRes.data.packingLists || pRes.data.lists || []);
       setSalesOrders(soRes.data.orders || []);
       setSerials(sRes.data.serials || []);
     } catch (err) {

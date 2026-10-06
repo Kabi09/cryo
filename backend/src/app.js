@@ -11,6 +11,7 @@ const { AppError } = require('./utils/apiResponse');
 // Routes
 const authRoutes = require('./routes/authRoutes');
 const masterRoutes = require('./routes/masterRoutes');
+const salesRoutes = require('./routes/salesRoutes');
 const leadRoutes = require('./routes/leadRoutes');
 const quotationRoutes = require('./routes/quotationRoutes');
 const customerPoRoutes = require('./routes/customerPoRoutes');
@@ -52,6 +53,7 @@ app.get('/api/health', (req, res) => {
 // Mount module routes
 app.use('/api/auth', authRoutes);
 app.use('/api/masters', masterRoutes);
+app.use('/api/sales', salesRoutes); // Supports /api/sales/customers, /api/sales/orders, etc.
 app.use('/api/leads', leadRoutes);
 app.use('/api/quotations', quotationRoutes);
 app.use('/api/customer-pos', customerPoRoutes);

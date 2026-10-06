@@ -195,6 +195,7 @@ erp-project/
 ## 6. Documentation Index
 
 For in-depth technical documentation, refer to the files in `/docs`:
+- [`docs/step-by-step-walkthrough.md`](docs/step-by-step-walkthrough.md) — **Step-by-step interactive user testing guide (Lead → Quotation → Production → QA → Service).**
 - [`docs/workflow.md`](docs/workflow.md) — Complete 42-module business workflow and operational guide.
 - [`docs/api-call.md`](docs/api-call.md) — Exhaustive REST API specification with example payloads and error codes.
 - [`docs/architecture.md`](docs/architecture.md) — Layered software architecture, state machine, and data flow.

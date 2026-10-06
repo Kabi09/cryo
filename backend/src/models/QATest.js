@@ -8,16 +8,16 @@ const qaParameterSchema = new mongoose.Schema({
   },
   specificationRequired: {
     type: String,
-    required: true
+    default: 'Standard tolerance'
   },
   actualValue: {
     type: String,
-    required: true
+    default: 'Within tolerance'
   },
   result: {
     type: String,
     enum: ['PASS', 'FAIL'],
-    required: true
+    default: 'PASS'
   },
   remarks: String
 });
